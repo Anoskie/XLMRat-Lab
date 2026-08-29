@@ -1,1 +1,42 @@
+                          XLMRat Lab
+Analyze network traffic to identify malware delivery, deobfuscate scripts, and map attacker techniques using MITRE ATT&CK, focusing on stealthy execution and reflective code loading.
+
+Category: Network Forensics
+
+Tactics: Execution Stealth
+
+Tools:
+CyberChef
+PowerShell
+VirusTotal
+Wireshark
+Python3
+
+
+
+               Question 1: The attacker successfully executed a command to download the first stage of the malware. What is the URL from which the first malware stage was installed?
+
+- The first step is to open the capture file in wiresherk and apply the http filter to investigate the traffic.
+
+- We investigate the GET requests and the first one is xlm.txt and the other is mdm.jpg. IN this case, we follow the first one. Right click on the request then click
+follow > HTTP.
+
+- In the Http stream we see that the xlm.txt file is actually a VBScript where the scripts are divided into smaller parts and stored in the array named LZeWX to avoid 
+suspicion. 
+
+- The question asked to to name the URL. We check the divided scripts and try to piece them together and notice that from LZeWX(42) to LZeWX(56) has the name of the URL.
+
+
+
+             Question 2: Which hosting provider owns the associated IP address?
+
+- The task is to check the nmae of the destination IP that is shown in the wireshark HTTP traffic.
+
+- There are various tools that can be used like WHOIS, ARIN, Hosting checker etc. I used hosting checker to find the hosting provider
+
+- The name of the provider is found when you type in the destination IP(45.126.209.4)
+
+
+
+
 
