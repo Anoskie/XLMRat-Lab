@@ -30,11 +30,20 @@ suspicion.
 
              Question 2: Which hosting provider owns the associated IP address?
 
-- The task is to check the nmae of the destination IP that is shown in the wireshark HTTP traffic.
+- The task is to check the name of the destination IP that is shown in the wireshark HTTP traffic.
 
-- There are various tools that can be used like WHOIS, ARIN, Hosting checker etc. I used hosting checker to find the hosting provider
+- There are various tools that can be used like WHOIS, ARIN, Hosting checker etc. I used hosting checker to find the hosting provider.
 
-- The name of the provider is found when you type in the destination IP(45.126.209.4)
+- The name of the provider is found when you type in the destination IP(45.126.209.4).
+
+
+
+            Question 3: By analyzing the malicious scripts, two payloads were identified: a loader and a secondary executable. What is the SHA256 of the malware executable?
+
+- Now we follow the second file mdm.jpg via HTTP stream. We see the contents inside the stream is a $hex string bbb which contains a massive string 
+of Hexadecimal bytes.
+
+- Examining the first few hexadecimal bytes (4D_5A_) in cyberchef, it translated to MZ which is a Windows Portable Executable.
 
 
 
