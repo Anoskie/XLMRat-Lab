@@ -45,6 +45,53 @@ of Hexadecimal bytes.
 
 - Examining the first few hexadecimal bytes (4D_5A_) in cyberchef, it translated to MZ which is a Windows Portable Executable.
 
+- Upon investigating the tcp stream, we see there are two hex strings:
+
+            - $hexString_pe > Reflective DLL loader binary
+            - $hexString_bbb > The actual secondary malware payload
+
+- we are investigating the second malware. We copy the entire string of hex characters for $hexstring_bbb to cyberchef. Cyberchef then 
+translated the hex characters to ACSII and the SHA256 of the malware can be seen in the output of the translation.
+
+
+          Question 4: What is the malware family label based on Alibaba?
+
+- We use a tool called virus total to check the hash found in the previous question.
+
+- The family label can be found after you search the hash on virus total.
+
+
+        Question 5: What is the PE header compile (Creation Time) timestamp of the malware?
+
+- Virus total exposes the creation time of the malware in the details section.
+
+        Question 6: Which LOLBin is leveraged for stealthy process execution in this script? Provide the full path.
+
+- Following the tcpstream, we investigate the scirpt obsfucated with #symbol specifically at $NA and $AC.
+
+- All that needs to be done is to deobsfucate the name of the path to get the answer.
+
+
+       Question 7: The script is designed to drop several files. List the names of the files dropped by the script.
+
+- The name of the files is found in the mdm.jpg file after following via tcp stream
+
+- Use the find feature to find the words "WriteAllText"
+
+- The name of the files can be found along side the words.
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
